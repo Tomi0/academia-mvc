@@ -14,12 +14,15 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "league/plates": "3.*"
+    },
     "autoload":
     {
         "psr-4":
         {
-            "Mini\\" : "application/"
+            "Mini\\" : "application/",
+            "League\\Plates\\": "src/"
         }
     }
 }

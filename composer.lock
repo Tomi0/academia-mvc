@@ -4,52 +4,40 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "72293ff4cc4a8c492eec7f2dee7f7161",
+    "content-hash": "68e63edae7588cb873835c7ccab06515",
     "packages": [
         {
             "name": "league/plates",
-            "version": "dev-master",
+            "version": "v3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/plates.git",
-                "reference": "f53f4c1fa4bf307d0f3858a348172ff4faf7669a"
+                "reference": "1ca2575c818a82849c027129aa7bc341c9e7f1b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/plates/zipball/f53f4c1fa4bf307d0f3858a348172ff4faf7669a",
-                "reference": "f53f4c1fa4bf307d0f3858a348172ff4faf7669a",
+                "url": "https://api.github.com/repos/thephpleague/plates/zipball/1ca2575c818a82849c027129aa7bc341c9e7f1b4",
+                "reference": "1ca2575c818a82849c027129aa7bc341c9e7f1b4",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "php": "^5.3 | ^7.0"
             },
             "require-dev": {
-                "eloquent/phony-peridot": "^2.0",
-                "peridot-php/leo": "^1.6",
-                "peridot-php/peridot": "^1.19",
-                "peridot-php/peridot-code-coverage-reporters": "^3.0",
+                "mikey179/vfsstream": "^1.4",
+                "phpunit/phpunit": "~4.0",
                 "squizlabs/php_codesniffer": "~1.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "League\\Plates\\": "src"
-                },
-                "files": [
-                    "src/Template/match.php",
-                    "src/Extension/Data/data.php",
-                    "src/Extension/Path/path.php",
-                    "src/Extension/RenderContext/func.php",
-                    "src/Extension/RenderContext/render-context.php",
-                    "src/Extension/LayoutSections/layout-sections.php",
-                    "src/Extension/Folders/folders.php",
-                    "src/Util/util.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -76,15 +64,13 @@
                 "templating",
                 "views"
             ],
-            "time": "2018-01-31T07:20:23+00:00"
+            "time": "2018-01-20T06:28:07+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "league/plates": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

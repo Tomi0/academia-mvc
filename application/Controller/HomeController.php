@@ -11,7 +11,9 @@
 
 namespace Mini\Controller;
 
-class HomeController
+use Mini\Core\Controller;
+
+class HomeController extends Controller
 {
     /**
      * PAGE: index
@@ -19,9 +21,6 @@ class HomeController
      */
     public function index()
     {
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/home/index.php';
-        require APP . 'view/_templates/footer.php';
+        echo $this->view->render('home/index', ['titulo' => 'Academia x2']);
     }
 }

@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Mini\\' => array($baseDir . '/application'),
+    'League\\Plates\\' => array($baseDir . '/src', $vendorDir . '/league/plates/src'),
 );

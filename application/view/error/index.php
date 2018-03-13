@@ -1,3 +1,3 @@
-<div class="container">
-    <p>This is the Error-page. Will be shown when a page (= controller / method) does not exist.</p>
-</div>
+<?php $this->layout('layouts/layout') ?>
+
+<div class="container"><h1>La página a la que intentas acceder no funciona</h1></div>

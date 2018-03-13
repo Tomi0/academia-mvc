@@ -33,5 +33,8 @@ require APP . 'config/config.php';
 // load application class
 use Mini\Core\Application;
 
+require APP . 'Core/View.php';
+require APP . 'Core/Controller.php';
+
 // start the application
 $app = new Application();

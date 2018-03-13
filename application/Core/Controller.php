@@ -8,6 +8,8 @@
 
 namespace Mini\Core;
 
+use Mini\Libs\Sesion;
+
 class Controller
 {
     public $view = null;
@@ -18,6 +20,6 @@ class Controller
     function __construct()
     {
         $this->view = TemplatesFactory::templates();
-        Session::init();
+        Sesion::init();
     }
 }

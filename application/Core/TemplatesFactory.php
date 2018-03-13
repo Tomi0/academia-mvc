@@ -8,6 +8,7 @@
 
 namespace Mini\Core;
 
+use Mini\Libs\Sesion;
 
 class TemplatesFactory
 {
@@ -18,7 +19,6 @@ class TemplatesFactory
 
         if ( ! TemplatesFactory::$templates) {
             TemplatesFactory::$templates = new \League\Plates\Engine(APP . 'view');
-            TemplatesFactory::$templates->addData(['titulo' => 'Mini3']);
         }
         return TemplatesFactory::$templates;
     }
