@@ -25,7 +25,7 @@ class Application
         // check for controller: no controller given ? then load start-page
         if (!$this->url_controller) {
 
-            $page = new \Mini\Controller\HomeController();
+            $page = new \Mini\Controller\PagesController();
             $page->index();
 
         } elseif (file_exists(APP . 'Controller/' . ucfirst($this->url_controller) . 'Controller.php')) {
@@ -44,7 +44,7 @@ class Application
                     // Call the method and pass arguments to it
                     call_user_func_array(array($this->url_controller, $this->url_action), $this->url_params);
                 } else {
-                    // If no parameters are given, just call the method without parameters, like $this->home->method();
+                    // If no parameters are given, just call the method without parameters, like $this->pages->method();
                     $this->url_controller->{$this->url_action}();
                 }
 

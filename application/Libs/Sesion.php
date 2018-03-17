@@ -34,6 +34,6 @@ class Sesion
 	}
 	public static function userIsLoggedIn()
 	{
-		return (Session::get('user_logged_in') ? true : false); 
+		return (self::get('user_logged_in') ? true : false);
 	}
 }

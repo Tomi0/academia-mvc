@@ -19,6 +19,11 @@ class TemplatesFactory
 
         if ( ! TemplatesFactory::$templates) {
             TemplatesFactory::$templates = new \League\Plates\Engine(APP . 'view');
+            TemplatesFactory::$templates->registerFunction(
+                'borrar_msg_feedback', function(){
+                Sesion::set('feedback_positive', null);
+                Sesion::set('feedback_negative', null);
+            });
         }
         return TemplatesFactory::$templates;
     }
