@@ -38,9 +38,4 @@ class PagesController extends Controller
     {
         echo $this->view->render('pages/contact', ['titulo' => 'Academia x2']);
     }
-
-    public function whyus()
-    {
-        echo $this->view->render('pages/whyus', ['titulo' => 'Academia x2']);
-    }
 }

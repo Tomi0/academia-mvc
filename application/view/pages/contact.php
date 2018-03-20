@@ -1,69 +1,49 @@
 <?php $this->layout('layouts/layout') ?>
 
-    <div class="section">
-        <!-- Contact Section Start -->
-        <section id="contact">
-            <div class="container">
-                <div class="row justify-content-md-center">
-                    <div class="wow rollIn" data-wow-duration="1000ms" data-wow-delay="300ms">
-                        <h2 class="section-title">CONTACT US</h2>
-                        <form id="contactForm" class="form-horizontal">
-                            <div class="row form-group">
-                                    <label for="" class="control-label col-md-4">Name</label>
-                                    <input type="text" class="form-control col-md-8">
-                            </div>
-                            <div class="row form-group">
-                                    <label for="" class="control-label col-md-4">email</label>
-                                    <input type="text" class="form-control col-md-8">
-                            </div>
-                            <div class="row form-group">
-                                    <label for="" class="control-label col-md-4">Text</label>
-                                    <textarea name="" id="" rows="10" class="form-control"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact Section End -->
-
-        <!-- Contact Icon Start -->
-        <div class="section contact-icon">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <div class="box-icon wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
-                            <div class="icon icon-primary">
-                                <i class="icon-map"></i>
-                            </div>
-                            <p>
-                                Avenue C, Block.04, DW, USA
-                            </p>
+<section id="contact">
+    <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Name</label>
+                            <input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name.">
+                            <p class="help-block text-danger"></p>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="box-icon wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="500ms">
-                            <div class="icon icon-secondary">
-                                <i class="icon-envelope"></i>
-                            </div>
-                            <p>
-                                info@yourdamainname.com
-                            </p>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Email Address</label>
+                            <input class="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address.">
+                            <p class="help-block text-danger"></p>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="box-icon wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="700ms">
-                            <div class="icon icon-tertiary">
-                                <i class="icon-phone"></i>
-                            </div>
-                            <p>
-                                (+699)1234-7575-45
-                            </p>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Phone Number</label>
+                            <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number.">
+                            <p class="help-block text-danger"></p>
                         </div>
                     </div>
-                </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <!-- Contact Icon End -->
     </div>
+</section>
