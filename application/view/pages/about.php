@@ -1,10 +1,10 @@
 <?php $this->layout('layouts/layout') ?>
 
 
-<section class="bg-primary text-white mb-0" id="about">
+<section class="mb-0" id="about">
     <div class="container">
-        <h2 class="text-center text-uppercase text-white">About</h2>
-        <hr class="star-light mb-5">
+        <h2 class="text-center text-uppercase text-secondary">Sobre nosotros</h2>
+        <hr class="star-dark mb-5">
         <div class="row">
             <div class="col-lg-4 ml-auto">
                 <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
@@ -14,9 +14,9 @@
             </div>
         </div>
         <div class="text-center mt-4">
-            <a class="btn btn-xl btn-outline-light" href="#">
+            <a class="btn btn-xl btn-primary" href="/register">
                 <i class="fa fa-download mr-2"></i>
-                Download Now!
+                Empezar!
             </a>
         </div>
     </div>

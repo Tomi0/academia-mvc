@@ -16,3 +16,68 @@
 .formulario-login, .formulario-registro {
     margin-top: 70px;
 }
+
+.contenedor {
+    margin-top: 30px;
+}
+
+.quitar-estilos-boton {
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.quitar-estilos-boton:hover {
+    background-color: transparent;
+}
+
+.formulario-login, .formulario-registro {
+    margin-top: 70px;
+}
+
+.margen-arriba {
+    margin-top: 30px;
+}
+
+.mini-margen-bot {
+    margin-bottom: 4px;
+}
+
+.margen-arriba-grande {
+    margin-top: 70px;
+}
+
+.matricula {
+    border: 1px solid black;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 20px;
+    padding-bottom: 0px;
+}
+
+.margen-izquierda-normal {
+    margin-left: 15px;
+}
+
+.pagination li{
+    margin: 0 15px;
+}
+.pagination li a{
+    display: block;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,.4);
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+}
+
+.pagination .active {
+    display: block;
+    background: #18BC9C;
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+}

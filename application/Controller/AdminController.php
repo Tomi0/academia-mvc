@@ -8,7 +8,6 @@
 
 namespace Mini\Controller;
 
-
 use Mini\Core\Controller;
 use Mini\Libs\Sesion;
 
@@ -17,7 +16,7 @@ class AdminController extends Controller
     function __construct()
     {
         parent::__construct();
-        if (!Sesion::userIsLoggedIn()) {
+        if (!Sesion::userIsLoggedIn() || Sesion::get('user')->rol_id != 1) {
             header('location: /');
         }
     }

@@ -18,9 +18,11 @@ class Sesion
 
 	public static function get($key)
 	{
-		if (isset($_SESSION[$key])) {
+		if (isset($_SESSION[$key]) && $key != 'user') {
 			return $_SESSION[$key];
-		}
+		} else if (isset($_SESSION[$key]) && $key == 'user') {
+		    return unserialize($_SESSION['user']);
+        }
 	}
 
 	public static function add($key, $value)

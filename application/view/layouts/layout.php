@@ -48,10 +48,10 @@
                 <?php if (\Mini\Libs\Sesion::userIsLoggedIn()) { ?>
 
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/">Inicio</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 <?= $_SERVER['REQUEST_URI'] == '/' ? 'active' : '' ?> rounded js-scroll-trigger" href="/">Inicio</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#">Cursos</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 <?= $_SERVER['REQUEST_URI'] == '/category' ? 'active' : '' ?> rounded js-scroll-trigger" href="/category">Cursos</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/login/logout">Cerrar sesión</a>
@@ -60,19 +60,19 @@
                 <?php } else { ?>
 
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/">Inicio</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 <?= $_SERVER['REQUEST_URI'] == '/' ? 'active' : '' ?> rounded js-scroll-trigger" href="/">Inicio</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/pages/about">Sobre nosotros</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 <?= $_SERVER['REQUEST_URI'] == '/pages/about' ? 'active' : '' ?> rounded js-scroll-trigger" href="/pages/about">Sobre nosotros</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/pages/contact">Contacto</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 <?= $_SERVER['REQUEST_URI'] == '/pages/contact' ? 'active' : '' ?> rounded js-scroll-trigger" href="/pages/contact">Contacto</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/login">Iniciar sesión</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 <?= $_SERVER['REQUEST_URI'] == '/login' ? 'active' : '' ?> rounded js-scroll-trigger" href="/login">Iniciar sesión</a>
                 </li>
                 <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/register">Registrarse</a>
+                    <a class="nav-link py-3 px-0 px-lg-3 <?= $_SERVER['REQUEST_URI'] == '/register' ? 'active' : '' ?> rounded js-scroll-trigger" href="/register">Registrarse</a>
                 </li>
 
                 <?php } ?>
@@ -83,9 +83,9 @@
 </nav>
 
 
-<div class="contenedor">
+<section class="contenedor">
     <?= $this->section('content') ?>
-</div>
+</section>
 
 
 <!-- Footer -->

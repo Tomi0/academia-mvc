@@ -43,9 +43,11 @@ class LoginController extends Controller
             $passOrig = $user->getPassword($_POST['email']);
 
             if (md5($_POST['password']) === $passOrig) {
-
-                Sesion::set('email', $_POST['email']);
+                $user = new User();
+                $user->find($_POST['email']);
+                Sesion::set('user', serialize($user));
                 Sesion::set('user_logged_in', true);
+                Sesion::set('email', $_POST['email']);
 
                 header('location: /');
 

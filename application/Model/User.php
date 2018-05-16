@@ -13,23 +13,65 @@ use Mini\Core\Model;
 
 class User extends Model
 {
+    public $id;
+    public $name;
+    public $email;
+    public $rol_id;
+    public $subjects;
+    public $password;
+
     function __construct()
     {
         parent::__construct();
     }
 
-    public function save($name, $email, $password)
+    public function save($name, $email, $rol_id, $password)
     {
 
         if (isset($name) && isset($email) && isset($password)) {
-            $sql = "INSERT INTO users(name,email,password) VALUES (:name,:email,:password)";
+            $sql = "INSERT INTO users(name,email,rol_id,password) VALUES (:name,:email,:rol_id,:password)";
             $query = $this->db->prepare($sql);
-            $params = array(':name' => $name, ':email' => $email, ':password' => md5($password));
+            $params = array(':name' => $name, ':email' => $email, ':rol_id' => $rol_id, ':password' => md5($password));
             $query->execute($params);
 
-            return true;
+            $this->find($email);
         }
 
+    }
+
+    public function find($email)
+    {
+        if (isset($email)) {
+            $sql = "SELECT * FROM users WHERE email=:email";
+            $query = $this->db->prepare($sql);
+            $params = array(':email' => $email);
+            $query->execute($params);
+
+            $data = $query->fetchAll();
+
+            if (isset($data[0])) {
+                $this->id = $data[0]->id;
+                $this->name = $data[0]->name;
+                $this->email = $data[0]->email;
+                $this->rol_id = $data[0]->rol_id;
+                $this->password = $data[0]->password;
+            }
+
+            $this->getSubjectsArray();
+        }
+    }
+
+    public function getSubjectsArray()
+    {
+        $sql = "SELECT subject_id FROM matriculas WHERE user_id=:id";
+        $query = $this->db->prepare($sql);
+        $query->execute(['id' => $this->id]);
+
+        $data = $query->fetchAll();
+
+        if (isset($data)) {
+            $this->subjects = $data;
+        }
     }
 
     public function comprobarEmail($email)
@@ -60,5 +102,15 @@ class User extends Model
         $password = $query->fetch()->password;
 
         return $password;
+    }
+
+    public function __sleep()
+    {
+        return array('id', 'name', 'email', 'rol_id', 'password');
+    }
+
+    public function __wakeup()
+    {
+        parent::__construct();
     }
 }

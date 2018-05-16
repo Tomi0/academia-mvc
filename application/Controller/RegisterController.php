@@ -39,9 +39,8 @@ class RegisterController extends Controller
             if ($resultadoValidaciones === true) {
 
                 $user = new User();
-                if ($user->save($_POST['name'], $_POST['email'], $_POST['password'])) {
-                    header('location: /login');
-                }
+                $user->save($_POST['name'], $_POST['email'], 4 , $_POST['password']);
+                header('location: /login');
 
             } else {
                 echo $this->view->render('auth/register', ['error' => $resultadoValidaciones]);
