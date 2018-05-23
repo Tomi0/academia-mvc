@@ -25,6 +25,15 @@ class Sesion
         }
 	}
 
+	public static function actualizarDatosUsuario()
+    {
+        if (self::userIsLoggedIn()) {
+            $user = self::get('user');
+            $user->find($user->email);
+            self::set('user', serialize($user));
+        }
+    }
+
 	public static function add($key, $value)
 	{
 		$_SESSION[$key][] = $value;

@@ -63,7 +63,7 @@ class User extends Model
 
     public function getSubjectsArray()
     {
-        $sql = "SELECT subject_id FROM matriculas WHERE user_id=:id";
+        $sql = "SELECT * FROM matriculas WHERE user_id=:id";
         $query = $this->db->prepare($sql);
         $query->execute(['id' => $this->id]);
 
@@ -71,6 +71,15 @@ class User extends Model
 
         if (isset($data)) {
             $this->subjects = $data;
+        }
+    }
+
+    public function matricular($subject)
+    {
+        if (isset($subject)) {
+            $sql = 'INSERT INTO matriculas(subject_id,user_id) VALUES (:subject_id,:user_id)';
+            $query = $this->db->prepare($sql);
+            $query->execute(['subject_id' => $subject->id, 'user_id' => $this->id]);
         }
     }
 
@@ -106,7 +115,7 @@ class User extends Model
 
     public function __sleep()
     {
-        return array('id', 'name', 'email', 'rol_id', 'password');
+        return array('id', 'name', 'email', 'rol_id', 'subjects', 'password');
     }
 
     public function __wakeup()

@@ -8,9 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title><?= isset($title) ? $title : 'Academia x2' ?></title>
 
     <!-- Bootstrap core CSS -->
@@ -37,7 +34,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="{{ route('pages.home') }}">Academia</a>
+        <a class="navbar-brand js-scroll-trigger" href="/">Academia</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fa fa-bars"></i>

@@ -41,6 +41,7 @@ class Subject extends Model
                 $this->slug = $data[0]->slug;
                 $this->category_id = $data[0]->category_id;
                 $this->user_id = $data[0]->user_id;
+                $this->matricula = $data[0]->matricula;
             }
         }
     }
