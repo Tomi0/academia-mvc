@@ -25,6 +25,11 @@
 
     <!-- Custom Fonts -->
     <link href="/admin-template/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/admin-template/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <link href="/admin-template/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
     <link href="/css/app.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -85,6 +90,18 @@
                     <li>
                         <a href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
+                    <li>
+                        <a href="#"><i class="fa fa-user fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/adminuser">Administrar usuarios</a>
+                            </li>
+                            <li>
+                                <a href="/adminuser/create">Crear un usuario</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
@@ -124,6 +141,18 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="/admin-template/dist/js/sb-admin-2.js"></script>
+
+<script src="/admin-template/datatables/js/jquery.dataTables.min.js"></script>
+<script src="/admin-template/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="/admin-template/datatables-responsive/dataTables.responsive.js"></script>
+<script src="/admin-templete/dist/js/sb-admin-2.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>
 
 </body>
 

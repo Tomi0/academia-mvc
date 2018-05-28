@@ -42,8 +42,20 @@ class Subject extends Model
                 $this->category_id = $data[0]->category_id;
                 $this->user_id = $data[0]->user_id;
                 $this->matricula = $data[0]->matricula;
+
+                $this->getDocumentsArray();
             }
         }
     }
 
+    public function getDocumentsArray()
+    {
+        if (isset($this->id)) {
+            $sql = "SELECT * FROM documents WHERE subject_id=:subject_id;";
+            $query = $this->db->prepare($sql);
+            $query->execute([':subject_id' => $this->id]);
+
+            $this->documents = $query->fetchAll();
+        }
+    }
 }

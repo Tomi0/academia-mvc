@@ -12,6 +12,12 @@
 
         <?php } ?>
 
+        <?php if (!isset($subject->documents) || count($subject->documents) == 0) { ?>
+
+            <h4>No hay documentos en esta asignatura</h4>
+
+        <?php } ?>
+
     </div>
 
 </div>

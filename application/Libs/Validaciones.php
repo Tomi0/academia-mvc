@@ -8,6 +8,7 @@
 
 namespace Mini\Libs;
 
+use Mini\Model\Rol;
 use Mini\Model\User;
 
 class Validaciones
@@ -101,6 +102,29 @@ class Validaciones
             }
         } else {
             return "La contraseña es obligatoria.";
+        }
+    }
+
+    public static function validarRol($str)
+    {
+        $rol = trim($str);
+
+        if (isset($rol) && $rol != "") {
+            if (self::comprobarLength(1,10,$rol)) {
+                $temp = new Rol();
+                $roles = $temp->all();
+
+                foreach ($roles as $role) {
+                    if ($role->id == $rol) return true;
+                }
+
+                return "Rol erroneo1.";
+
+            } else {
+                return "Rol erroneo2.";
+            }
+        } else {
+            return "Es necesario introducir un rol.";
         }
     }
 

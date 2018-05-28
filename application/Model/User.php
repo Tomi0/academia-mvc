@@ -17,6 +17,7 @@ class User extends Model
     public $name;
     public $email;
     public $rol_id;
+    public $rol;
     public $subjects;
     public $password;
 
@@ -39,6 +40,24 @@ class User extends Model
 
     }
 
+    public function all()
+    {
+        $sql = "SELECT * FROM users";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        $data = $query->fetchAll();
+        $return = [];
+
+        foreach ($data as $user) {
+            $temp = new User();
+            $temp->find($user->email);
+            $return[] = $temp;
+        }
+
+        return $return;
+    }
+
     public function find($email)
     {
         if (isset($email)) {
@@ -54,10 +73,23 @@ class User extends Model
                 $this->name = $data[0]->name;
                 $this->email = $data[0]->email;
                 $this->rol_id = $data[0]->rol_id;
+                $temp = new Rol();
+                $temp->find($this->rol_id);
+                $this->rol = $temp;
                 $this->password = $data[0]->password;
             }
 
             $this->getSubjectsArray();
+        }
+    }
+
+    public function delete()
+    {
+        if (isset($this->id)) {
+            $sql = "DELETE FROM users WHERE id=:id";
+            $query = $this->db->prepare($sql);
+            $params = array(':id' => $this->id);
+            $query->execute($params);
         }
     }
 
@@ -115,11 +147,12 @@ class User extends Model
 
     public function __sleep()
     {
-        return array('id', 'name', 'email', 'rol_id', 'subjects', 'password');
+        return array('id', 'name', 'email', 'rol_id', 'rol', 'subjects', 'password');
     }
 
     public function __wakeup()
     {
         parent::__construct();
+
     }
 }
