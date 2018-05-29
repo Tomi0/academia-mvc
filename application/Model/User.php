@@ -21,14 +21,17 @@ class User extends Model
     public $subjects;
     public $password;
 
-    function __construct()
+    function __construct($userFind = null)
     {
         parent::__construct();
+
+        if (isset($userFind)) {
+            self::find($userFind);
+        }
     }
 
     public function save($name, $email, $rol_id, $password)
     {
-
         if (isset($name) && isset($email) && isset($password)) {
             $sql = "INSERT INTO users(name,email,rol_id,password) VALUES (:name,:email,:rol_id,:password)";
             $query = $this->db->prepare($sql);
@@ -37,7 +40,16 @@ class User extends Model
 
             $this->find($email);
         }
+    }
 
+    public function update($email)
+    {
+        if (isset($email)) {
+            $sql = "UPDATE users SET name=:name, email=:email1,  rol_id=:rol_id, password=:password WHERE email=:email2";
+            $query = $this->db->prepare($sql);
+            $params = array(':name' => $this->name, ':email1' => $this->email, ':rol_id' => $this->rol_id, ':password' => $this->password, ':email2' => $email);
+            $query->execute($params);
+        }
     }
 
     public function all()
@@ -124,6 +136,28 @@ class User extends Model
             $query->execute($params);
 
             if (!$query->fetch()) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        return true;
+    }
+
+    public function comprobarEmailUpdate($email, $id)
+    {
+        if (isset($email)){
+            $sql = "SELECT * FROM users WHERE email=:email";
+            $query = $this->db->prepare($sql);
+            $params = array(':email' => $email);
+            $query->execute($params);
+
+            $data = $query->fetch();
+
+            if (!$data) {
+                return false;
+            } else if (isset($data->id) && $data->id == $id) {
                 return false;
             } else {
                 return true;

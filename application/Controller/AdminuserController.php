@@ -70,6 +70,69 @@ class AdminuserController extends Controller
         }
     }
 
+    public function edit($userEmail = null)
+    {
+        if (isset($userEmail)) {
+            $user = new User($userEmail);
+
+            if (isset($user->name)) {
+                $rol = new Rol();
+                $allRoles = $rol->all();
+
+                echo $this->view->render('admin/user/edit', ['user' => $user, 'roles' => $allRoles]);
+            } else {
+                header('location: /error');
+            }
+        } else {
+            header('location: /error');
+        }
+    }
+
+    public function update($email = null)
+    {
+        if (!isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['role'])) {
+            header('location: /adminuser');
+        } else if (isset($email)) {
+            $user = new User($email);
+        } else {
+            header('location: /adminuser');
+        }
+
+        if (isset($_POST['password']) && $_POST['password'] != "") {
+            $resultadoValidacion['password'] = Validaciones::validarPassword($_POST['password']);
+            $password = true;
+        } else if ($_POST['email'] != $email) {
+            $resultadoValidacion['email'] = Validaciones::validarEmailUpdate($_POST['email'], $user->id);
+        }
+
+        $resultadoValidacion['name'] = Validaciones::validarNombre($_POST['name']);
+        $resultadoValidacion['role'] = Validaciones::validarRol($_POST['role']);
+
+        foreach ($resultadoValidacion as $value) {
+            if ($value !== true) {
+                $rol = new Rol();
+                $roles = $rol->all();
+                $user = new User($email);
+                echo $this->view->render('admin/user/edit', ['roles' => $roles, 'user' => $user, 'errors' => $resultadoValidacion]);
+                $aux = true;
+                break;
+            }
+        }
+
+        if (!isset($aux)) {
+            $user->name = $_POST['name'];
+            $user->rol_id = $_POST['role'];
+            $user->email = $_POST['email'];
+
+            if (isset($password) && $password) {
+                $user->password = md5($_POST['password']);
+            }
+
+            $user->update($email);
+            header('location: /adminuser');
+        }
+    }
+
     public function delete($email)
     {
         if (isset($email)) {

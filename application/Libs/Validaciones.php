@@ -87,6 +87,30 @@ class Validaciones
         }
     }
 
+    public static function validarEmailUpdate($str, $id)
+    {
+        $email = trim($str);
+        if (isset($email) && isset($id) && $email != "") {
+            if (self::comprobarLength(5,50,$email)) {
+                if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $user = new User();
+
+                    if ($user->comprobarEmailUpdate($email, $id) === false) {
+                        return true;
+                    } else {
+                        return "El email introducido ya se encuentra en uso.";
+                    }
+                } else {
+                    return "El email no tiene un formato adecuado.";
+                }
+            } else {
+                return "El email tienen que tener entre 5 y 50 carácteres.";
+            }
+        } else {
+            return "El email es obligatorio.";
+        }
+    }
+
     public static function validarPassword($str)
     {
         $password = trim($str);
@@ -118,10 +142,11 @@ class Validaciones
                     if ($role->id == $rol) return true;
                 }
 
-                return "Rol erroneo1.";
+                // en el caso en el que el rol no esté en la base de datos
+                return "Rol erroneo.";
 
             } else {
-                return "Rol erroneo2.";
+                return "Rol erroneo.";
             }
         } else {
             return "Es necesario introducir un rol.";
