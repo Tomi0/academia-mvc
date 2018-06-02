@@ -21,9 +21,12 @@ class Subject extends Model
     public $matricula;
     public $documents = [];
 
-    public function __construct()
+    public function __construct($slug = null)
     {
         parent::__construct();
+        if (isset($slug)) {
+            $this->find($slug);
+        }
     }
 
     public function find($slug)
@@ -55,7 +58,16 @@ class Subject extends Model
             $query = $this->db->prepare($sql);
             $query->execute([':subject_id' => $this->id]);
 
-            $this->documents = $query->fetchAll();
+            $data = $query->fetchAll();
+
+            $array = [];
+
+            foreach ($data as $document) {
+                $tmp = new Document($document->slug);
+                $array[] = $tmp;
+            }
+
+            $this->documents = $array;
         }
     }
 }

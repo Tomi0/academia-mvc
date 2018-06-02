@@ -35,15 +35,31 @@ class SubjectsController extends Controller
             header('location: /error');
         }
 
-        $subj = new Subject();
-        $subj->find($subject);
+        $subj = new Subject($subject);
 
         if ($this->authorize($subj)) {
             echo $this->view->render('subject/show', ['subject' => $subj]);
-        } else {
+        } else if (isset($subj->id)) {
             echo $this->view->render('subject/matricula', ['subject' => $subj]);
+        } else {
+            header('location: /error');
         }
 
+    }
+
+    public function edit($subject = null)
+    {
+        if (!isset($subject)) {
+            header('location: /error');
+        } else {
+            $subject = new Subject($subject);
+        }
+
+        if (isset($subject->id) && $subject->user_id == Sesion::get('user')->id) {
+            echo $this->view->render('subject/edit', ['subject' => $subject]);
+        } else {
+            header('location: /error');
+        }
     }
 
     public function matricula($subject = null)
@@ -52,8 +68,7 @@ class SubjectsController extends Controller
             header('location: /error');
         }
 
-        $subj = new Subject();
-        $subj->find($subject);
+        $subj = new Subject($subject);
 
         if ($subj->matricula === $_POST['matricula']) {
             Sesion::get('user')->matricular($subj);
@@ -67,6 +82,11 @@ class SubjectsController extends Controller
     private function authorize($subject)
     {
         Sesion::actualizarDatosUsuario();
+
+        if (Sesion::get('user')->id == $subject->user_id) {
+            return true;
+        }
+
         foreach (Sesion::get('user')->subjects as $sub) {
             if ($subject->id === $sub->subject_id) {
                 return true;
