@@ -80,7 +80,7 @@ class DocumentsController extends Controller
 
         foreach ($resultadoValidacion as $value) {
             if ($value !== true) {
-                echo $this->view->render("subject/edit", ['subject' => $subject, 'error' => $resultadoValidacion]);
+                echo $this->view->render("subject/edit", ['subject' => $subject, 'errors' => $resultadoValidacion]);
                 return;
             } else if (!isset($subject->id)) {
                 header('location: /error');
