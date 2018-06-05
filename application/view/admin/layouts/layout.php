@@ -30,7 +30,7 @@
 
     <link href="/admin-template/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
-    <link href="/css/app.css" rel="stylesheet" type="text/css">
+    <link href="/css/admin-css.css" rel="stylesheet" type="text/css">
 
 </head>
 
