@@ -46,21 +46,45 @@ class Category extends Model
 
     public function find($slug)
     {
-        $sql = 'SELECT * FROM categories WHERE slug=:slug;';
-        $query = $this->db->prepare($sql);
-        $params = array(':slug' => $slug);
-        $query->execute($params);
+        if (isset($slug)) {
+            $sql = 'SELECT * FROM categories WHERE slug=:slug;';
+            $query = $this->db->prepare($sql);
+            $params = array(':slug' => $slug);
+            $query->execute($params);
 
-        $data = $query->fetchAll();
+            $data = $query->fetchAll();
 
-        if (isset($data[0])) {
-            $this->id = $data[0]->id;
-            $this->name = $data[0]->name;
-            $this->slug = $data[0]->slug;
-            $this->category_id = $data[0]->category_id;
+            if (isset($data[0])) {
+                $this->id = $data[0]->id;
+                $this->name = $data[0]->name;
+                $this->slug = $data[0]->slug;
+                $this->category_id = $data[0]->category_id;
 
-            $this->getCategoriesArray();
-            $this->getSubjectsArray();
+                $this->getCategoriesArray();
+                $this->getSubjectsArray();
+            }
+        }
+    }
+
+    public function findId($id)
+    {
+        if (isset($id)) {
+            $sql = 'SELECT * FROM categories WHERE id=:id;';
+            $query = $this->db->prepare($sql);
+            $params = array(':id' => $id);
+            $query->execute($params);
+
+            $data = $query->fetchAll();
+
+            if (isset($data[0])) {
+                $this->id = $data[0]->id;
+                $this->name = $data[0]->name;
+                $this->slug = $data[0]->slug;
+                $this->category_id = $data[0]->category_id;
+
+                $this->getCategoriesArray();
+                $this->getSubjectsArray();
+            }
         }
     }
 

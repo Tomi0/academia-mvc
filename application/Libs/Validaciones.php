@@ -8,6 +8,7 @@
 
 namespace Mini\Libs;
 
+use Mini\Model\Category;
 use Mini\Model\Rol;
 use Mini\Model\User;
 
@@ -150,6 +151,53 @@ class Validaciones
             }
         } else {
             return "Es necesario introducir un rol.";
+        }
+    }
+
+    public static function validarNombreDefecto($str)
+    {
+        $name = trim($str);
+
+        if (isset($name) && $name != "") {
+            if (self::comprobarLength(3,100,$name)) {
+                if (preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ\s]+?$/", $name)) {
+                    return true;
+                } else {
+                    return "El nombre no tiene un formato adecuado.";
+                }
+            } else {
+                return "El nombre tiene que tener un minimo de 3 carácter y un maximo de 50.";
+            }
+        } else {
+            return "El campo nombre es obligatorio.";
+        }
+    }
+
+    public static function validarCategory_id($id) {
+        if (isset($id)) {
+            $cat = new Category();
+            $cat->findId($id);
+            if (isset($cat->id)) {
+                return true;
+            } else {
+                return 'Error al introducir el campo.';
+            }
+        } else {
+            return 'El campo es obligatorio.';
+        }
+    }
+
+    public static function validarUser_id($id) {
+        if (isset($id)) {
+            $cat = new User();
+            $cat->findId($id);
+            if (isset($cat->id) && $cat->rol->name == 'profesor') {
+                return true;
+            } else {
+                return 'Error al introducir el campo.';
+            }
+        } else {
+            return 'El campo es obligatorio.';
         }
     }
 

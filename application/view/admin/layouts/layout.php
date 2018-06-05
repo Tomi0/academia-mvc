@@ -100,7 +100,17 @@
                                 <a href="/adminuser/create">Crear un usuario</a>
                             </li>
                         </ul>
-                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-folder-open fa-fw"></i> Asignaturas<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/adminsubjects">Administrar asignaturas</a>
+                            </li>
+                            <li>
+                                <a href="/adminsubjects/create">Crear una asignatura</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

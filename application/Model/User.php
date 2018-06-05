@@ -95,6 +95,31 @@ class User extends Model
         }
     }
 
+    public function findId($id)
+    {
+        if (isset($id)) {
+            $sql = "SELECT * FROM users WHERE id=:id";
+            $query = $this->db->prepare($sql);
+            $params = array(':id' => $id);
+            $query->execute($params);
+
+            $data = $query->fetchAll();
+
+            if (isset($data[0])) {
+                $this->id = $data[0]->id;
+                $this->name = $data[0]->name;
+                $this->email = $data[0]->email;
+                $this->rol_id = $data[0]->rol_id;
+                $temp = new Rol();
+                $temp->find($this->rol_id);
+                $this->rol = $temp;
+                $this->password = $data[0]->password;
+            }
+
+            $this->getSubjectsArray();
+        }
+    }
+
     public function delete()
     {
         if (isset($this->id)) {

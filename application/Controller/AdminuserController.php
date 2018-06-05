@@ -23,6 +23,7 @@ class AdminuserController extends Controller
         parent::__construct();
         if (!Sesion::userIsLoggedIn() || Sesion::get('user')->rol_id != 1) {
             header('location: /');
+            return;
         }
     }
 
