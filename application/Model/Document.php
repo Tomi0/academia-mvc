@@ -39,6 +39,26 @@ class Document extends Model
         }
     }
 
+    public function all()
+    {
+        $sql = "SELECT * FROM documents;";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        $data = $query->fetchAll();
+
+        if (isset($data)) {
+            $all = [];
+
+            foreach ($data as $document) {
+                $doc = new Document($document->slug);
+                $all[] = $doc;
+            }
+
+            return $all;
+        }
+    }
+
     public function find($slug)
     {
         if (isset($slug)) {

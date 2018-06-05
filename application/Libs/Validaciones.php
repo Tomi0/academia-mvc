@@ -10,6 +10,7 @@ namespace Mini\Libs;
 
 use Mini\Model\Category;
 use Mini\Model\Rol;
+use Mini\Model\Subject;
 use Mini\Model\User;
 
 class Validaciones
@@ -201,6 +202,22 @@ class Validaciones
                 return true;
             } else {
                 return 'Error al introducir el campo.';
+            }
+        } else {
+            return 'El campo es obligatorio.';
+        }
+    }
+
+    public static function validarAsignatura($str)
+    {
+        $id = trim($str);
+        if (isset($id)) {
+            $subj = new Subject();
+            $subj->findId($id);
+            if (isset($subj->name)) {
+                return true;
+            } else {
+                return 'Asignatura no válida.';
             }
         } else {
             return 'El campo es obligatorio.';

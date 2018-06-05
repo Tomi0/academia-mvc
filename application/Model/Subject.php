@@ -93,6 +93,34 @@ class Subject extends Model
         }
     }
 
+    public function findId($id)
+    {
+        if (isset($id)) {
+            $sql = "SELECT * FROM subjects WHERE id=:id;";
+            $query = $this->db->prepare($sql);
+            $query->execute([':id' => $id]);
+
+            $data = $query->fetchAll();
+
+            if (isset($data[0])) {
+                $this->id = $data[0]->id;
+                $this->name = $data[0]->name;
+                $this->slug = $data[0]->slug;
+                $this->category_id = $data[0]->category_id;
+                $category = new Category();
+                $category->findId($this->category_id);
+                $this->category = $category;
+                $this->user_id = $data[0]->user_id;
+                $user = new User();
+                $user->findId($this->user_id);
+                $this->user = $user;
+                $this->matricula = $data[0]->matricula;
+
+                $this->getDocumentsArray();
+            }
+        }
+    }
+
     public function all()
     {
         $sql = "SELECT * FROM subjects;";

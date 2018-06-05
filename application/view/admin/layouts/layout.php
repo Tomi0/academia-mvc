@@ -112,6 +112,9 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="/admindocuments"><i class="fa fa-file-text fa-fw"></i> Documentos</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->

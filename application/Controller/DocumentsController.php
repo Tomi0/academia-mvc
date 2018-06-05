@@ -44,7 +44,7 @@ class DocumentsController extends Controller
             }
         }
 
-        if ($documentSubject->user_id === Sesion::get('user')->id) {
+        if ($documentSubject->user_id === Sesion::get('user')->id || Sesion::get('user')->rol->name == "admin") {
             $aux = true;
         }
 
@@ -62,7 +62,10 @@ class DocumentsController extends Controller
 
     public function store($subjectSlug = null)
     {
-        if (!isset($subjectSlug)) {
+        if (!isset($_POST['name']) || !isset($_POST['description']) || !isset($_FILES['document-file'])) {
+            header('location: /subjects/edit/' . $subjectSlug);
+            return;
+        } else if (!isset($subjectSlug)) {
             header('location: /error');
             return;
         } else {
