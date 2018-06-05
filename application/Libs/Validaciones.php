@@ -178,6 +178,12 @@ class Validaciones
             $cat = new Category();
             $cat->findId($id);
             if (isset($cat->id)) {
+                foreach ($cat->subjects as $subject) {
+                    if ($subject->name == $_POST['name']) {
+                        return 'Ya hay una asignatura con el mismo nombre en este curso.';
+                    }
+                }
+
                 return true;
             } else {
                 return 'Error al introducir el campo.';

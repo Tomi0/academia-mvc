@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bdd3746-c552-4586-ab59-b902b78a7908" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/application/Libs/Validaciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/Libs/Validaciones.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/league/plates" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/league/plates" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,20 +17,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="layout.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/view/admin/layouts/layout.php">
+      <file leaf-file-name="Validaciones.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/Libs/Validaciones.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2090">
-              <caret line="110" column="62" selection-start-line="110" selection-start-column="62" selection-end-line="110" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/view/admin/user/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-191">
-              <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+            <state relative-caret-position="550">
+              <caret line="186" column="28" selection-start-line="186" selection-start-column="28" selection-end-line="186" selection-end-column="28" />
+              <folding>
+                <element signature="e#108#132#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,7 +82,6 @@
         <option value="$PROJECT_DIR$/application/view/subject/show.php" />
         <option value="$PROJECT_DIR$/application/Controller/DocumentsController.php" />
         <option value="$PROJECT_DIR$/application/view/subject/edit.php" />
-        <option value="$PROJECT_DIR$/application/view/admin/layouts/layout.php" />
         <option value="$PROJECT_DIR$/application/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/application/Controller/AdminuserController.php" />
         <option value="$PROJECT_DIR$/application/Model/User.php" />
@@ -95,9 +89,10 @@
         <option value="$PROJECT_DIR$/application/view/admin/subject/create.php" />
         <option value="$PROJECT_DIR$/application/view/admin/subject/index.php" />
         <option value="$PROJECT_DIR$/application/Model/Subject.php" />
-        <option value="$PROJECT_DIR$/application/Libs/Validaciones.php" />
         <option value="$PROJECT_DIR$/application/Controller/AdminsubjectsController.php" />
         <option value="$PROJECT_DIR$/application/view/admin/subject/edit.php" />
+        <option value="$PROJECT_DIR$/application/view/admin/layouts/layout.php" />
+        <option value="$PROJECT_DIR$/application/Libs/Validaciones.php" />
       </list>
     </option>
   </component>
@@ -145,20 +140,8 @@
             <path>
               <item name="academia" type="b2602c69:ProjectViewProjectNode" />
               <item name="academia" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="academia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="academia" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="admin-template" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="academia" type="b2602c69:ProjectViewProjectNode" />
-              <item name="academia" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="admin-template" type="462c0819:PsiDirectoryNode" />
-              <item name="datatables-plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="Libs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -173,16 +156,16 @@
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/img" />
-      <recent name="$PROJECT_DIR$/application/Controller" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/css" />
+      <recent name="$PROJECT_DIR$/public/admin-template" />
       <recent name="$PROJECT_DIR$/.documents" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/application/view" />
-      <recent name="$PROJECT_DIR$/application/view/partials" />
-      <recent name="$PROJECT_DIR$/application/Libs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/img" />
+      <recent name="$PROJECT_DIR$/application/Controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -232,12 +215,12 @@
       <workItem from="1527942703602" duration="599000" />
       <workItem from="1527946325795" duration="940000" />
       <workItem from="1528122569782" duration="11747000" />
-      <workItem from="1528205231230" duration="3588000" />
+      <workItem from="1528205231230" duration="3956000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91795000" />
+    <option name="totallyTimeSpent" value="92163000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -276,8 +259,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/view/_templates/footer.php" />
-    <entry file="file://$PROJECT_DIR$/application/view/pages/index.php" />
     <entry file="file://$PROJECT_DIR$/application/view/auth/passwords/email.blade.php" />
     <entry file="file://$PROJECT_DIR$/application/view/pages/whyus.php" />
     <entry file="file://$PROJECT_DIR$/application/view/admin/dashboard.php">
@@ -533,16 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/Libs/Validaciones.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="180" column="28" selection-start-line="180" selection-start-column="28" selection-end-line="180" selection-end-column="28" />
-          <folding>
-            <element signature="e#108#132#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/Model/Subject.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
@@ -585,23 +556,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/view/admin/layouts/layout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2090">
-          <caret line="110" column="62" selection-start-line="110" selection-start-column="62" selection-end-line="110" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/admin-template/datatables/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/public/admin-template/datatables-plugins/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/admin-css.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/admin-template/datatables-responsive/dataTables.responsive.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/view/admin/layouts/layout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="41" column="32" lean-forward="true" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/view/admin/user/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-191">
-          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+        <state relative-caret-position="303">
+          <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Libs/Validaciones.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="186" column="28" selection-start-line="186" selection-start-column="28" selection-end-line="186" selection-end-column="28" />
+          <folding>
+            <element signature="e#108#132#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
