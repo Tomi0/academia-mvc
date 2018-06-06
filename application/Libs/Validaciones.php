@@ -174,6 +174,27 @@ class Validaciones
         }
     }
 
+    public static function validarCategory_idCrearCategoria($id)
+    {
+        if (isset($id)) {
+            $cat = new Category();
+            $cat->findId($id);
+            if (isset($cat->id)) {
+                foreach ($cat->categories as $category) {
+                    if ($category->name == $_POST['name']) {
+                        return 'Ya hay un curso con ese nombre.';
+                    }
+                }
+
+                return true;
+            } else {
+                return 'Error al introducir el campo.';
+            }
+        } else {
+            return 'El campo es obligatorio.';
+        }
+    }
+
     public static function validarCategory_id($id) {
         if (isset($id)) {
             $cat = new Category();

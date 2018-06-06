@@ -172,7 +172,8 @@ class Subject extends Model
 
         if (isset($data->id)) {
             $this->id = $data->id;
-            $this->slug = strtolower($this->name) . '-' . $this->id;
+            $aux = str_replace(' ','-', $this->name);
+            $this->slug = strtolower($aux) . '-' . $this->id;
 
             $sql = "UPDATE subjects SET slug=:slug WHERE id=:id";
             $query = $this->db->prepare($sql);

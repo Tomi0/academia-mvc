@@ -118,6 +118,18 @@
                     <li>
                         <a href="/adminmatriculas"><i class="fa fa-book fa-fw"></i> Administrar matriculas</a>
                     </li>
+                    <li>
+                        <a href="#"><i class="fa fa-suitcase fa-fw"></i> Cursos<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admincategories">Administrar cursos</a>
+                            </li>
+                            <li>
+                                <a href="/admincategories/create">Crear un curso</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
