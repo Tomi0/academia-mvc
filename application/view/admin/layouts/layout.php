@@ -115,6 +115,9 @@
                     <li>
                         <a href="/admindocuments"><i class="fa fa-file-text fa-fw"></i> Documentos</a>
                     </li>
+                    <li>
+                        <a href="/adminmatriculas"><i class="fa fa-book fa-fw"></i> Administrar matriculas</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->

@@ -72,7 +72,7 @@ class AdmindocumentsController extends Controller
         }
     }
 
-    public function delete($slug)
+    public function delete($slug = null)
     {
         if (!isset($slug)) {
             header('location: /error');

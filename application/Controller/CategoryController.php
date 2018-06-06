@@ -30,6 +30,7 @@ class CategoryController extends Controller
         $categories = $cat->whereNull('category_id');
 
         echo $this->view->render('category/index', ['categories' => $categories]);
+        return;
     }
 
     public function show($category = null)
@@ -37,6 +38,7 @@ class CategoryController extends Controller
         if (!isset($category))
         {
             header('location: /error');
+            return;
         }
 
         $cat = new Category();

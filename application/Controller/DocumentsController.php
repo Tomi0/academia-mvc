@@ -106,7 +106,7 @@ class DocumentsController extends Controller
         }
     }
 
-    public function delete($document)
+    public function delete($document = null)
     {
         if (!isset($document)) {
             header('location: /error');

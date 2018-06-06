@@ -139,7 +139,16 @@ class User extends Model
         $data = $query->fetchAll();
 
         if (isset($data)) {
-            $this->subjects = $data;
+            $arraySubjects = [];
+
+            foreach ($data as $value) {
+                $subject = new Subject();
+                $subject->findId($value->subject_id);
+
+                $arraySubjects[] = $subject;
+            }
+
+            $this->subjects = $arraySubjects;
         }
     }
 
@@ -149,6 +158,15 @@ class User extends Model
             $sql = 'INSERT INTO matriculas(subject_id,user_id) VALUES (:subject_id,:user_id)';
             $query = $this->db->prepare($sql);
             $query->execute(['subject_id' => $subject->id, 'user_id' => $this->id]);
+        }
+    }
+
+    public function desmatricular($id)
+    {
+        if (isset($id)) {
+            $sql = "DELETE FROM matriculas WHERE user_id=:user_id AND subject_id=:subject_id";
+            $query = $this->db->prepare($sql);
+            $query->execute([':user_id' => $this->id, 'subject_id' => $id]);
         }
     }
 

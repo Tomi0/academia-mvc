@@ -22,5 +22,6 @@ class ErrorController extends Controller
     public function index()
     {
         echo $this->view->render('error/index');
+        return;
     }
 }
