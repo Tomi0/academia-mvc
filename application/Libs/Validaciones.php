@@ -161,7 +161,7 @@ class Validaciones
 
         if (isset($name) && $name != "") {
             if (self::comprobarLength(3,100,$name)) {
-                if (preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ\s]+?$/", $name)) {
+                if (preg_match("/^[a-zA-Z\s]+?$/", $name)) {
                     return true;
                 } else {
                     return "El nombre no tiene un formato adecuado.";
@@ -180,11 +180,25 @@ class Validaciones
             $cat->findId($id);
             if (isset($cat->id)) {
                 foreach ($cat->subjects as $subject) {
-                    if ($subject->name == $_POST['name']) {
+                    if (strtolower($subject->name) == strtolower($_POST['name'])) {
                         return 'Ya hay una asignatura con el mismo nombre en este curso.';
                     }
                 }
 
+                return true;
+            } else {
+                return 'Error al introducir el campo.';
+            }
+        } else {
+            return 'El campo es obligatorio.';
+        }
+    }
+
+    public static function validarCategory_idUpdate($id) {
+        if (isset($id)) {
+            $cat = new Category();
+            $cat->findId($id);
+            if (isset($cat->id)) {
                 return true;
             } else {
                 return 'Error al introducir el campo.';

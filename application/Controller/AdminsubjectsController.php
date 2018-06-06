@@ -77,6 +77,9 @@ class AdminsubjectsController extends Controller
         if (!isset($slug)) {
             header('location: /error');
             return;
+        } else if (!isset($_POST['name']) || !isset($_POST['category_id']) || !isset($_POST['user_id'])) {
+            header('location: /adminsubjects/edit/' . $slug);
+            return;
         }
 
         $subject = new Subject($slug);
@@ -87,7 +90,7 @@ class AdminsubjectsController extends Controller
         }
 
         $resultadoValidacion['name'] = Validaciones::validarNombreDefecto($_POST['name']);
-        $resultadoValidacion['category_id'] = Validaciones::validarCategory_id($_POST['category_id']);
+        $resultadoValidacion['category_id'] = Validaciones::validarCategory_idUpdate($_POST['category_id']);
         $resultadoValidacion['user_id'] = Validaciones::validarUser_id($_POST['user_id']);
 
         foreach ($resultadoValidacion as $value) {
