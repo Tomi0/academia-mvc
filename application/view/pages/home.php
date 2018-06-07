@@ -7,7 +7,5 @@
         <h2 class="font-weight-light text-secondary mb-0">Primaria - ESO - Bachiller - PAU - Universidad</h2>
         <h2 class="font-weight-light text-secondary mb-0">Online</h2>
 
-        <p><?php var_dump(\Mini\Libs\Sesion::get('user')) ?></p>
-
     </div>
 </header>

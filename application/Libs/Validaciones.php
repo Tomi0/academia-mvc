@@ -264,14 +264,14 @@ class Validaciones
         $name = trim($str);
 
         if (isset($name) && $name != "") {
-            if (self::comprobarLength(1,30,$name)) {
+            if (self::comprobarLength(1,100,$name)) {
                 if (preg_match("/^[A-ZÑÁÉÍÓÚa-záéíóú0-9\s]+?$/", $name)) {
                     return true;
                 } else {
                     return "El nombre no tiene un formato adecuado.";
                 }
             } else {
-                return "El nombre tiene que tener un minimo de 1 carácter y un maximo de 30.";
+                return "El nombre tiene que tener un minimo de 1 carácter y un maximo de 100.";
             }
         } else {
             return "El campo nombre es obligatorio.";
@@ -283,14 +283,14 @@ class Validaciones
         $description = trim($str);
 
         if (isset($description) && $description != "") {
-            if (self::comprobarLength(3,30,$description)) {
+            if (self::comprobarLength(3,300,$description)) {
                 if (preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ0-9\s]+?$/", $description)) {
                     return true;
                 } else {
                     return "La descripción no tiene un formato adecuado.";
                 }
             } else {
-                return "La descripción tiene que tener un minimo de 3 carácteres y un maximo de 30.";
+                return "La descripción tiene que tener un minimo de 3 carácteres y un maximo de 300.";
             }
         } else {
             return "El campo descripción es obligatorio.";
