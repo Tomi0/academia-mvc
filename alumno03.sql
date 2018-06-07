@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mysql
--- Tiempo de generación: 06-06-2018 a las 17:33:14
+-- Tiempo de generación: 07-06-2018 a las 17:38:39
 -- Versión del servidor: 8.0.3-rc-log
 -- Versión de PHP: 7.1.9
 
@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `academia`
 --
-CREATE DATABASE IF NOT EXISTS `academia` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `academia`;
+CREATE DATABASE IF NOT EXISTS `alumno03` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `alumno03`;
 
 -- --------------------------------------------------------
 
@@ -33,7 +33,7 @@ USE `academia`;
 CREATE TABLE `categories` (
   `id` int(10) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `slug` varchar(110) NOT NULL,
+  `slug` varchar(110) DEFAULT NULL,
   `category_id` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -43,8 +43,12 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `category_id`) VALUES
 (1, 'PAU', 'pau-1', NULL),
-(2, 'ESO', 'eso-2', NULL),
-(5, 'Primero de ESO', 'primero-de-eso-5', 2);
+(25, 'Universidad', 'universidad-25', NULL),
+(26, 'Primero de carrera', 'primero-de-carrera-26', 25),
+(28, 'Primaria', 'primaria-28', NULL),
+(29, 'Primero de primaria', 'primero-de-primaria-29', 28),
+(30, 'Segundo de primaria', 'segundo-de-primaria-30', 28),
+(31, 'Tercero de primaria', 'tercero-de-primaria-31', 28);
 
 -- --------------------------------------------------------
 
@@ -66,8 +70,9 @@ CREATE TABLE `documents` (
 --
 
 INSERT INTO `documents` (`id`, `name`, `description`, `slug`, `url`, `subject_id`) VALUES
-(15, 'Tema 1 Test', 'Leer para el proximo dia', '1527941426test.pdf', '/var/www/academia/storage/documents/1527941426test.pdf', 1),
-(16, 'Tema 2 test 2', 'Esto es una prueba', '1528214086test.pdf', '/var/www/academia/storage/documents/1528214086test.pdf', 1);
+(15, 'Tema 1 Test', 'Prueba 1', '1527941426test.pdf', '/var/www/academia/storage/documents/1527941426test.pdf', 1),
+(16, 'Tema 2 test 2', 'Esto es una prueba', '1528214086test.pdf', '/var/www/academia/storage/documents/1528214086test.pdf', 1),
+(22, 'Sinfonía número 9 de Beethoven', 'Beethoven comenzó a componerla en 1818 y finalizó su composición a principios de 1824', '1528391648test.pdf', '/var/www/academia/storage/documents/1528391648test.pdf', 21);
 
 -- --------------------------------------------------------
 
@@ -86,7 +91,11 @@ CREATE TABLE `matriculas` (
 --
 
 INSERT INTO `matriculas` (`id`, `subject_id`, `user_id`) VALUES
-(13, 1, 1);
+(13, 1, 1),
+(26, 16, 4),
+(27, 1, 4),
+(28, 21, 4),
+(29, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -130,8 +139,13 @@ CREATE TABLE `subjects` (
 
 INSERT INTO `subjects` (`id`, `name`, `slug`, `category_id`, `user_id`, `matricula`) VALUES
 (1, 'Lengua', 'lengua-1', 1, 9, 'fDcr3Z2EMQ'),
-(2, 'Matematicas', 'matematicas-2', 5, 7, 'uJnWxbiPYt'),
-(3, 'Química', 'quimica-3', 1, 7, 'hdYyC4Vo9K');
+(3, 'Química', 'quimica-3', 1, 7, 'hdYyC4Vo9K'),
+(16, 'Conocimiento del medio', 'conocimiento-del-medio-16', 1, 7, '7kSQi81sMw'),
+(17, 'Lengua', 'lengua-17', 29, 9, 'ZI7lprTmuv'),
+(18, 'Mates', 'mates-18', 29, 7, 'ewYKlp4zkq'),
+(19, 'Lengua', 'lengua-19', 30, 7, 'geQazDJ5FR'),
+(20, 'Matematicas', 'matematicas-20', 30, 9, 'Ooi8pUkxwm'),
+(21, 'Musica', 'musica-21', 31, 9, '8tFP3HY1Kz');
 
 -- --------------------------------------------------------
 
@@ -156,7 +170,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `rol_id`, `password`) VALUES
 (6, 'Invitado', 'invitado@gmail.com', 4, '5ebe2294ecd0e0f08eab7690d2a6ee69'),
 (7, 'Profesor', 'profesor@gmail.com', 2, '5ebe2294ecd0e0f08eab7690d2a6ee69'),
 (8, 'Admin', 'admin@gmail.com', 1, '5ebe2294ecd0e0f08eab7690d2a6ee69'),
-(9, 'Profe', 'profe@gmail.com', 2, '5ebe2294ecd0e0f08eab7690d2a6ee69');
+(9, 'Profe', 'profe@gmail.com', 2, '5ebe2294ecd0e0f08eab7690d2a6ee69'),
+(10, 'Tomi', 'prueba@gmail.com', 3, '5ebe2294ecd0e0f08eab7690d2a6ee69');
 
 --
 -- Índices para tablas volcadas
@@ -208,19 +223,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `matriculas`
 --
 ALTER TABLE `matriculas`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -232,13 +247,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
