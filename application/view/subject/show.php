@@ -6,21 +6,35 @@
 
     <?= \Mini\Libs\Sesion::get('user')->id == $subject->user_id ? '<a class="btn btn-primary" href="/subjects/edit/' . $subject->slug . '">Editar asignatura</a>' : '' ?>
 
-    <div class="list-group margen-arriba">
+    <div class="card margen-arriba">
 
-        <?php if (!isset($subject->documents) || count($subject->documents) == 0) { ?>
+        <div class="card-header">
+            Documentos de la asignatura
+        </div>
 
-            <h4>No hay documentos en esta asignatura</h4>
+        <div class="card-body">
 
-        <?php } else { ?>
+            <?php if (!isset($subject->documents) || count($subject->documents) == 0) { ?>
 
-        <?php foreach ($subject->documents as $document) { ?>
+                <h4>No hay documentos en esta asignatura</h4>
 
-            <a href="/documents/show/<?= $document->slug ?>" class="list-group-item list-group-item-action"><?= $document->name ?></a>
+            <?php } else { ?>
 
-        <?php } ?>
+                <?php foreach ($subject->documents as $document) { ?>
 
-        <?php } ?>
+                    <p><a href="/documents/show/<?= $document->slug ?>"><?= $document->name ?></a></p>
+
+                    <p><?= $document->description ?></p>
+
+                    <a href="/documents/show/<?= $document->slug ?>" class="btn btn-primary">Ver documento</a>
+
+                    <hr>
+
+                <?php } ?>
+
+            <?php } ?>
+
+        </div>
 
     </div>
 
