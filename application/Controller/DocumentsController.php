@@ -37,8 +37,9 @@ class DocumentsController extends Controller
             $documentSubject = $document->getSubject();
         }
 
+        Sesion::actualizarDatosUsuario();
         foreach (Sesion::get('user')->subjects as $sub) {
-            if ($documentSubject->id === $sub->subject_id) {
+            if ($documentSubject->id === $sub->id) {
                 $aux = true;
                 break;
             }

@@ -180,4 +180,14 @@ class Subject extends Model
             $query->execute([':slug' => $this->slug, ':id' => $this->id]);
         }
     }
+
+    public function __sleep()
+    {
+        return array('id', 'name', 'slug', 'category_id', 'category', 'user_id', 'user', 'matricula', 'documents');
+    }
+
+    public function __wakeup()
+    {
+        parent::__construct();
+    }
 }

@@ -199,4 +199,14 @@ class Category extends Model
             $this->subjects = $data;
         }
     }
+
+    public function __sleep()
+    {
+        return array('id', 'name', 'slug', 'category_id', 'category', 'categories', 'subjects');
+    }
+
+    public function __wakeup()
+    {
+        parent::__construct();
+    }
 }

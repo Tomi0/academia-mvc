@@ -67,19 +67,19 @@
         <div class="form-group <?= isset($errors['name']) ? 'has-error' : '' ?>">
             <label for="name">Nombre</label>
             <input type="text" name="name" id="name" class="form-control" placeholder="nombre del documento" value="<?= isset($_POST['name']) ? $_POST['name'] : '' ?>">
-            <?= isset($errors['name']) ? '<span class="text-danger">' . $errors['name'] . '</span>' : '' ?>
+            <?= isset($errors['name']) && $errors['name'] !== true ? '<span class="text-danger">' . $errors['name'] . '</span>' : '' ?>
         </div>
 
         <div class="form-group <?= isset($errors['description']) ? 'has-error' : '' ?>">
             <label for="description">Descripción</label>
             <textarea type="text" name="description" id="description" class="form-control" placeholder="descripción del documento"><?= isset($_POST['description']) ? $_POST['description'] : '' ?></textarea>
-            <?= isset($errors['description']) ? '<span class="text-danger">' . $errors['description'] . '</span>' : '' ?>
+            <?= isset($errors['description']) && $errors['description'] !== true ? '<span class="text-danger">' . $errors['description'] . '</span>' : '' ?>
         </div>
 
         <div class="form-group <?= isset($errors['file']) ? 'has-error' : '' ?>">
             <label for="exampleFormControlFile1">Documento</label>
             <input type="file" class="form-control-file" name="document-file" id="exampleFormControlFile1">
-            <?= isset($errors['file']) ? '<span class="text-danger">' . $errors['file'] . '</span>' : '' ?>
+            <?= isset($errors['file']) && $errors['file'] !== true ? '<span class="text-danger">' . $errors['file'] . '</span>' : '' ?>
         </div>
 
         <div class="form-group">

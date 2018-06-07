@@ -284,7 +284,7 @@ class Validaciones
 
         if (isset($description) && $description != "") {
             if (self::comprobarLength(3,30,$description)) {
-                if (preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ\s]+?$/", $description)) {
+                if (preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ0-9\s]+?$/", $description)) {
                     return true;
                 } else {
                     return "La descripción no tiene un formato adecuado.";

@@ -230,6 +230,5 @@ class User extends Model
     public function __wakeup()
     {
         parent::__construct();
-
     }
 }

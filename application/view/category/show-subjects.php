@@ -6,9 +6,17 @@
 
     <div class="list-group margen-arriba">
 
-        <?php foreach ($category->subjects as $subject) { ?>
+        <?php if (!isset($category->subjects) || count($category->subjects) <= 0) { ?>
 
-            <a href="/subjects/show/<?= $subject->slug ?>" class="list-group-item list-group-item-action"><?= $subject->name ?></a>
+            <h4>De momento no hay asignaturas en este curso.</h4>
+
+        <?php } else { ?>
+
+            <?php foreach ($category->subjects as $subject) { ?>
+
+                <a href="/subjects/show/<?= $subject->slug ?>" class="list-group-item list-group-item-action"><?= $subject->name ?></a>
+
+            <?php } ?>
 
         <?php } ?>
 

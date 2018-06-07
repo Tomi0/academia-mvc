@@ -105,4 +105,14 @@ class Document extends Model
             $query->execute($params);
         }
     }
+
+    public function __sleep()
+    {
+        return array('id', 'name', 'description', 'slug', 'url', 'subject_id', 'subject');
+    }
+
+    public function __wakeup()
+    {
+        parent::__construct();
+    }
 }

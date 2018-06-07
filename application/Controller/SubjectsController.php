@@ -88,7 +88,7 @@ class SubjectsController extends Controller
         }
 
         foreach (Sesion::get('user')->subjects as $sub) {
-            if ($subject->id === $sub->subject_id) {
+            if ($subject->id === $sub->id) {
                 return true;
             }
         }
