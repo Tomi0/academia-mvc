@@ -182,7 +182,7 @@ class Validaciones
             if (isset($cat->id)) {
                 foreach ($cat->categories as $category) {
                     if ($category->name == $_POST['name']) {
-                        return 'Ya hay un curso con ese nombre.';
+                        return 'Ya hay un curso con ese nombre en ese nivel.';
                     }
                 }
 

@@ -45,7 +45,7 @@
                     <div class="row">
                         <div class="col-lg-12 form-group">
                             <button type="submit" class="btn btn-primary">Crear</button>
-                            <a href="{{ route('admin.category') }}" class="btn btn-secondary">Volver</a>
+                            <a href="/admincategories" class="btn btn-secondary">Volver</a>
                         </div>
                     </div>
 

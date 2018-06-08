@@ -51,15 +51,37 @@ class AdmincategoriesController extends Controller
             return;
         }
 
+        $aux = false;
+
         $validaciones['name'] = Validaciones::validarNombreDefecto($_POST['name']);
         $validaciones['category_id'] = Validaciones::validarCategory_idCrearCategoria($_POST['category_id']);
 
         if ($_POST['category_id'] == "" || $validaciones['category_id'] === true) {
+
+            if ($_POST['category_id'] == "") {
+                $c = new Category();
+                $allCat = $c->whereNull('category_id');
+
+                foreach ($allCat as $cate) {
+                    if (strtolower($cate->name) == strtolower($_POST['name'])) {
+                        $aux = true;
+                    }
+                }
+            }
+
             if ($validaciones['name'] !== true) {
                 $category = new Category();
                 $allCategories = $category->all();
 
                 unset($validaciones['category_id']);
+
+                echo $this->view->render('admin/category/create', ['categories' => $allCategories, 'errors' => $validaciones]);
+                return;
+            } else if ($aux === true) {
+                $category = new Category();
+                $allCategories = $category->all();
+
+                $validaciones['category_id'] = 'Ya existe un curso con ese nombre en ese nivel.';
 
                 echo $this->view->render('admin/category/create', ['categories' => $allCategories, 'errors' => $validaciones]);
                 return;
